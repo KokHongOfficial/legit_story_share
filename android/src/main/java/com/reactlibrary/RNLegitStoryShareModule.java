@@ -5,8 +5,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.support.v4.content.FileProvider;
+import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.Promise;
@@ -171,7 +171,6 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
       } else {
         intent.setType(MEDIA_TYPE_IMAGE);
       }
-
       if(stickerFile != null){
         Uri stickerAssetUri = FileProvider.getUriForFile(activity, providerName, stickerFile);
 
@@ -181,6 +180,7 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
       }
 
       intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
 
       if(backgroundBottomColor != null){
         intent.putExtra("bottom_background_color", backgroundBottomColor);
@@ -244,7 +244,45 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
         }
 
         case FILE: {
-          throw new Error(ERROR_TYPE_NOT_SUPPORTED);
+
+          
+          String providerName = this.getReactApplicationContext().getPackageName() + ".fileprovider";
+
+          if(backgroundAsset != null){
+            backgroundFile = new File(backgroundAsset);
+
+            if(backgroundFile == null){
+              throw new Error("Could not create file in RNLegitStoryShare");
+            }
+          }
+
+          if(stickerAsset != null){
+            stickerFile =new File(stickerAsset);
+
+            if(stickerFile == null){
+              throw new Error("Could not create file in RNLegitStoryShare");
+            }
+          }
+          // Instantiate implicit intent with ADD_TO_STORY action,
+          // background asset, and attribution link
+
+
+
+          // Intent intent = new Intent("com.instagram.share.ADD_TO_STORY");
+          // intent.putExtra("interactive_asset_uri", dataSticker);
+          // intent.setDataAndType(data, "image/*");
+
+          // intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+          // // Instantiate activity and verify it will resolve implicit intent
+
+          // Activity activity = getCurrentActivity();
+          // activity.grantUriPermission(
+          //   "com.instagram.android", dataSticker, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+          // if (activity.getPackageManager().resolveActivity(intent, 0) != null) {
+          //   activity.startActivityForResult(intent, 0);
+          // }
+          break;
         }
 
         default: {
