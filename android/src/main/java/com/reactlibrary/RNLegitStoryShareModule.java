@@ -286,7 +286,7 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
           break;
         }
         case CONTENT:{
-          backgroundFile = getContentResolver().openInputStream(backgroundAsset) 
+          backgroundFile = getContentResolver().openInputStream(backgroundAsset);
 
           if(stickerAsset != null){
             stickerFile =new File(stickerAsset);
@@ -296,7 +296,7 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
             }
           }
           
-          break
+          break;
         }
 
         default: {
