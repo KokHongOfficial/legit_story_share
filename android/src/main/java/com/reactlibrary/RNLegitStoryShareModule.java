@@ -288,7 +288,7 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
           break;
         }
         case CONTENT:{
-          backgroundFile = getContentResolver().openInputStream(backgroundAsset);
+          backgroundFile = this.getReactApplicationContext().getContentResolver().openInputStream(backgroundAsset);
 
           if(stickerAsset != null){
             stickerFile =new File(stickerAsset);
