@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
+import android.content.ContentResolver.openInputStream;
+import android.content.Context.getContentResolver;
 
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.Promise;
