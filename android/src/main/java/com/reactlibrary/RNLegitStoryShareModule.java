@@ -30,6 +30,7 @@ import java.util.Random;
 public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
   private static final String FILE= "file";
   private static final String BASE64 = "base64";
+  private static final String CONTENT = "content";
   private static final String INTERNAL_DIR_NAME = "rnlegitstoryshare";
 
   private static final String SUCCESS = "success";
@@ -283,6 +284,19 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
           //   activity.startActivityForResult(intent, 0);
           // }
           break;
+        }
+        case CONTENT:{
+          backgroundFile = getContentResolver().openInputStream(backgroundAsset) 
+
+          if(stickerAsset != null){
+            stickerFile =new File(stickerAsset);
+
+            if(stickerFile == null){
+              throw new Error("Could not create file in RNLegitStoryShare");
+            }
+          }
+          
+          break
         }
 
         default: {
