@@ -7,8 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
-import android.content.ContentResolver.openInputStream;
-import android.content.Context.getContentResolver;
 
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.Promise;
@@ -285,19 +283,6 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
           // if (activity.getPackageManager().resolveActivity(intent, 0) != null) {
           //   activity.startActivityForResult(intent, 0);
           // }
-          break;
-        }
-        case CONTENT:{
-          backgroundFile = this.getReactApplicationContext().getContentResolver().openInputStream(backgroundAsset);
-
-          if(stickerAsset != null){
-            stickerFile =new File(stickerAsset);
-
-            if(stickerFile == null){
-              throw new Error("Could not create file in RNLegitStoryShare");
-            }
-          }
-          
           break;
         }
 
