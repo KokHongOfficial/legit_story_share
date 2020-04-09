@@ -30,6 +30,7 @@ import java.util.Random;
 public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
   private static final String FILE= "file";
   private static final String BASE64 = "base64";
+  private static final String CONTENT = "content";
   private static final String INTERNAL_DIR_NAME = "rnlegitstoryshare";
 
   private static final String SUCCESS = "success";

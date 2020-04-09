@@ -15,6 +15,7 @@ class RNLegitStoryShare: NSObject{
     let domain: String = "RNLegitStoryShare"
     let FILE: String = "file"
     let BASE64: String = "base64"
+    let CONTENT: String = "content"
 
     let UNKNOWN_ERROR: String = "An unknown error occured in RNLegitStoryShare"
 
@@ -25,7 +26,8 @@ class RNLegitStoryShare: NSObject{
     func constantsToExport() -> [String: Any]! {
         return [
             "FILE": FILE,
-            "BASE64": BASE64
+            "BASE64": BASE64,
+            "CONTENT": CONTENT
         ]
     }
 
